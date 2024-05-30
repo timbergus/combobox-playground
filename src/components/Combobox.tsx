@@ -30,7 +30,9 @@ export default function Combobox() {
     keys: ['name'],
   })
 
-  const filteredPeople = fuse.search(query).map(({ item }) => item)
+  const filteredPeople = query
+    ? fuse.search(query).map(({ item }) => item)
+    : people
 
   return (
     <HeadlessCombobox
